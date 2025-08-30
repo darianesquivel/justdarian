@@ -1,0 +1,75 @@
+---
+import SocialMedia from "./SocialMedia.astro";
+---
+
+<section id="index" class="flex justify-center items-center w-full gap-4 p-4 h-dvh">
+    <div class="flex flex-col gap-10">
+      <div class="flex flex-col gap-2">
+        <div class="flex gap-4 items-end">
+          <div class="rounded-full">
+            <video class="rounded-full" autoplay loop muted width="100px">
+              <source type="video/mp4" src="/public/avatar.mp4">
+            </video>
+          </div>
+          <span class="bg-white rounded-full p-2 px-4 text-2xl font-extrabold"> Hola, bienvenidos!</span>
+        </div>
+        <div class="flex">
+          <span class="bg-white rounded-full p-2 px-4 text-2xl font-extrabold">
+            <span id="typewriter"></span><span id="cursor">|</span>
+          </span>
+        </div>
+      </div>
+      <SocialMedia/>
+    </div>
+  </section>
+  
+  <script>
+    const texts = [
+      "Soy justdarian...",
+      "Soy desarrollador...",
+      "Yo puedo ayudarte!"
+    ];
+  
+    const typewriter = document.getElementById('typewriter');
+    const cursor = document.getElementById('cursor');
+  
+    let currentText = 0;
+    let currentContent = '';
+    let speed = 100;
+  
+    setInterval(() => {
+    
+    if(cursor) cursor.style.visibility = cursor.style.visibility === 'visible' ? 'hidden' : 'visible';
+    
+    }, 500);
+  
+    function getCommonPrefix(a:string, b:string) {
+      let i = 0;
+      while (i < a.length && i < b.length && a[i] === b[i]) i++;
+      return i;
+    }
+  
+    function type() {
+      const nextText = texts[currentText];
+      const commonLength = getCommonPrefix(currentContent, nextText);
+  
+      if (currentContent.length > commonLength) {
+        currentContent = currentContent.slice(0, currentContent.length - 1);
+        
+        if(typewriter) typewriter.textContent = currentContent;
+        setTimeout(type, speed / 2);
+      } else if (currentContent.length < nextText.length) {
+        currentContent += nextText[currentContent.length];
+        if(typewriter) typewriter.textContent = currentContent;
+        setTimeout(type, speed);
+      } else {
+        setTimeout(() => {
+          currentText = (currentText + 1) % texts.length;
+          type();
+        }, 2000);
+      }
+    }
+  
+    type();
+  </script>
+  
