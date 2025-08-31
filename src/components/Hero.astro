@@ -10,11 +10,16 @@ import SocialMedia from "./SocialMedia.astro";
     <div class="flex flex-col gap-2">
       <div class="flex gap-4 items-end">
         <div class="rounded-full">
-          <img
-            src="images/avatar_animated.webp"
-            alt="Avatar animado"
-            class="rounded-full w-[100px] h-[100px]"
-          />
+          <video
+            class="rounded-full"
+            autoplay
+            loop
+            muted
+            playsinline
+            width="100"
+          >
+            <source src="images/avatar.webm" type="video/webm" />
+          </video>
         </div>
         <span class="bg-white rounded-full p-2 px-4 text-xl font-extrabold">
           Hola, bienvenidos</span
