@@ -1,12 +1,17 @@
 <header
   class="w-full flex justify-center items-center fixed z-50
-               bg-gradient-to-b from-primary/95 to-transparent backdrop-blur-xs rounded-b-xl"
+         bg-gradient-to-b from-primary/95 to-transparent backdrop-blur-xs rounded-b-xl"
 >
-  <div class="flex w-3/5 justify-between rounded-full text-white py-10">
+  <div
+    class="flex w-full max-w-6xl justify-between items-center text-white py-4 px-6"
+  >
     <div>
-      <span class="text-2xl font-extrabold">justdarian</span>
+      <span class="text-lg md:text-2xl font-extrabold">justdarian</span>
     </div>
-    <div class="flex gap-10 font-extrabold items-center text-xs">
+
+    <nav
+      class="hidden md:flex gap-6 lg:gap-10 font-extrabold items-center text-xs md:text-sm"
+    >
       <a href="#" class="transition-transform duration-300 hover:scale-110"
         >INICIO</a
       >
@@ -18,6 +23,87 @@
         href="#portfolio"
         class="transition-transform duration-300 hover:scale-110">TRABAJOS</a
       >
+    </nav>
+
+    <div class="relative md:hidden">
+      <button
+        id="menu-btn"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="p-2 flex flex-col gap-1.5 items-end focus:outline-none"
+        type="button"
+      >
+        <span class="w-6 h-0.5 bg-white rounded"></span>
+        <span class="w-4 h-0.5 bg-white rounded"></span>
+        <span class="w-5 h-0.5 bg-white rounded"></span>
+      </button>
+
+      <div
+        id="mobile-menu"
+        class="absolute right-0 mt-2 w-44 rounded-b-xl bg-primary/95 text-white font-bold
+               flex flex-col divide-y divide-white/10 overflow-hidden
+               max-h-0 opacity-0 pointer-events-none transition-all duration-300"
+        role="menu"
+        aria-hidden="true"
+      >
+        <a
+          href="#"
+          class="block w-full text-left px-4 py-3 hover:bg-primary/80"
+          role="menuitem">INICIO</a
+        >
+        <a
+          href="#services"
+          class="block w-full text-left px-4 py-3 hover:bg-primary/80"
+          role="menuitem">SERVICIOS</a
+        >
+        <a
+          href="#portfolio"
+          class="block w-full text-left px-4 py-3 hover:bg-primary/80"
+          role="menuitem">TRABAJOS</a
+        >
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const wrapper = menuBtn?.parentElement;
+
+  const openClasses = ["max-h-[240px]", "opacity-100", "pointer-events-auto"];
+  const closeClasses = ["max-h-0", "opacity-0", "pointer-events-none"];
+
+  function openMenu() {
+    mobileMenu?.classList.remove(...closeClasses);
+    mobileMenu?.classList.add(...openClasses);
+    mobileMenu?.setAttribute("aria-hidden", "false");
+    menuBtn?.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.remove(...openClasses);
+    mobileMenu?.classList.add(...closeClasses);
+    mobileMenu?.setAttribute("aria-hidden", "true");
+    menuBtn?.setAttribute("aria-expanded", "false");
+  }
+
+  menuBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = mobileMenu?.classList.contains("opacity-100");
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrapper?.contains(e.target as Node)) closeMenu();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  mobileMenu?.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => closeMenu());
+  });
+</script>
