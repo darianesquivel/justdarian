@@ -50,6 +50,10 @@ body {
   background-color: var(--color-primary);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   --color-primary: #0d1117;
   --color-secondary: #f17ea6;
