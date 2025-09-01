@@ -11,16 +11,23 @@ import SocialMedia from "./SocialMedia.astro";
       <div class="flex gap-4 items-end">
         <div class="rounded-full">
           <img
+            data-aos="fade-right"
             src="/images/avatar_animated.webp"
             class="w-[100px] rounded-full"
           />
         </div>
-        <span class="bg-white rounded-full p-2 px-4 text-xl font-extrabold">
-          Hola, bienvenidos!</span
+        <p
+          data-aos="fade-left"
+          class="bg-white rounded-full p-2 px-4 text-xl font-extrabold"
         >
+          Hola, bienvenidos!
+        </p>
       </div>
       <div class="flex">
-        <span class="bg-white rounded-full p-2 px-4 text-xl font-extrabold">
+        <span
+          data-aos="fade-right"
+          class="bg-white rounded-full p-2 px-4 text-xl font-extrabold"
+        >
           <span id="typewriter"></span><span id="cursor">|</span>
         </span>
       </div>
@@ -33,8 +40,9 @@ import SocialMedia from "./SocialMedia.astro";
         CONTACTAME !
       </a>
     </div>
-
-    <SocialMedia />
+    <div data-aos="fade-up">
+      <SocialMedia />
+    </div>
   </div>
   <div class="absolute bottom-10 animate-bounce">
     <a href="#services">

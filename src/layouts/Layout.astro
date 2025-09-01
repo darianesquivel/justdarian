@@ -1,29 +1,40 @@
 ---
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro"
-import '../styles/global.css'
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>justdarian</title>
-	</head>
-	<body>
-		<Header/>
-		<slot />
-		<Footer/>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>justdarian</title>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script is:inline src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer
+    ></script>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+
+    <script type="module">
+      AOS?.init({
+        duration: 800,
+        once: true,
+        easing: "ease-in-out",
+      });
+    </script>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
