@@ -4,30 +4,21 @@ import SocialMedia from "./SocialMedia.astro";
 
 <section
   id="index"
+  data-aos="fade-up"
   class="flex flex-col justify-center items-center w-full p-4 h-dvh"
 >
   <div class="flex flex-col gap-10">
     <div class="flex flex-col gap-2">
-      <div class="flex gap-4 items-end">
-        <div class="rounded-full">
-          <img
-            data-aos="fade-up"
-            src="/images/avatar_animated.webp"
-            class="w-[100px] rounded-full"
-          />
+      <div class="flex gap-1 items-end">
+        <div class="bg-white rounded-full">
+          <img src="/images/avatar.webp" class="w-30 h-30 rounded-full" />
         </div>
-        <p
-          data-aos="fade-up"
-          class="bg-white rounded-full p-2 px-4 text-xl font-extrabold"
-        >
+        <p class="bg-white rounded-full p-2 px-4 text-xl font-extrabold">
           Hola, bienvenidos!
         </p>
       </div>
       <div class="flex">
-        <span
-          data-aos="fade-up"
-          class="bg-white rounded-full p-2 px-4 text-xl font-extrabold"
-        >
+        <span class="bg-white rounded-full p-2 px-4 text-xl font-extrabold">
           <span id="typewriter"></span><span id="cursor">|</span>
         </span>
       </div>
@@ -40,7 +31,7 @@ import SocialMedia from "./SocialMedia.astro";
         CONTACTAME !
       </a>
     </div>
-    <div data-aos="fade-up">
+    <div>
       <SocialMedia />
     </div>
   </div>
