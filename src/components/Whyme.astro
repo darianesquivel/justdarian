@@ -3,7 +3,7 @@ const cards = [
   {
     title: "Experiencia que se nota",
     icon: "briefcase",
-    text: "Llevo años creando y perfeccionando sitios web. Se lo que funciona y cómo hacerlo brillar.",
+    text: "Llevo años creando y perfeccionando sitios web. Sé lo que funciona y cómo hacerlo brillar.",
   },
   {
     title: "Creatividad que te hace destacar",
@@ -26,66 +26,63 @@ const cards = [
     text: "La comunicación fluida es el secreto para el éxito de cualquier proyecto.",
   },
 ];
-
-const scrollDirections = ["scroll-left", "scroll-right"];
 ---
 
-<section
-  id="why-me"
-  class="bg-primary flex flex-col gap-10 overflow-hidden relative py-16"
->
-  <!-- Título principal -->
-  <div class="flex justify-center text-center">
-    <h2
-      data-aos="fade-up"
-      class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white"
-    >
-      POR QUE TRABAJAR CONMIGO?
-    </h2>
-  </div>
-
-  <!-- Líneas de scroll -->
-  {
-    scrollDirections.map((dir) => (
-      <div class={`animate-${dir} flex gap-6 w-max`}>
-        {cards.concat(cards).map((card, i) => (
-          <div
-            class="flex items-start bg-secondary rounded-xl p-6 gap-4 shadow-lg flex-shrink-0 w-[90vw] sm:w-auto sm:min-w-[350px]  shadow-gray-800"
-            data-aos="fade-up"
-            data-aos-delay={i * 100}
-          >
-            <img src={`/images/${card.icon}.svg`} class="w-12 sm:w-14" />
-            <div class="font-bold text-white">
-              <h2 class="text-2xl md:text-3xl">{card.title}</h2>
-              <p class="mt-2 text-sm md:text-base">{card.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    ))
-  }
-
-  <!-- Llamado a la acción -->
+<section id="why-me" class="bg-primary" aria-labelledby="why-me-heading">
   <div
     data-aos="fade-up"
-    class="flex flex-col justify-center items-center text-center gap-4"
+    class="flex flex-col gap-10 overflow-hidden relative py-16 motion-safe:animate-none text-white"
   >
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-      ¡DALE! MANDAME UN MENSAJE Y ARMEMOS ALGO COPADO.
-    </h2>
-    <img src="/images/smiling-face-with-sunglasses.svg" class="w-12 sm:w-14" />
+    <div class="flex justify-center text-center">
+      <h2
+        id="why-me-heading"
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase"
+      >
+        Por qué trabajar conmigo?
+      </h2>
+    </div>
+
+    {
+      (
+        <div class="animate-scroll-right flex gap-6 w-max">
+          {cards.concat(cards).map((card, i) => (
+            <div
+              class="flex items-start bg-secondary rounded-xl p-6 gap-4 shadow-lg flex-shrink-0 w-[90vw] sm:w-auto sm:min-w-[350px] shadow-gray-800"
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
+            >
+              <img
+                src={`/images/${card.icon}.svg`}
+                class="w-12 sm:w-14"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+              <div class="font-bold">
+                <h3 class="text-1xl md:text-2xl uppercase">{card.title}</h3>
+                <p class="mt-2 text-sm md:text-base">{card.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="flex flex-col justify-center items-center text-center gap-4">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase">
+        ¡Dale! Mandame un mensaje y armemos algo copado.
+      </h2>
+      <img
+        src="/images/smiling-face-with-sunglasses.svg"
+        class="w-12 sm:w-14"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      />
+    </div>
   </div>
 
-  <!-- Animaciones de scroll -->
   <style is:global>
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
     @keyframes scroll-right {
       0% {
         transform: translateX(-50%);
@@ -95,11 +92,16 @@ const scrollDirections = ["scroll-left", "scroll-right"];
       }
     }
 
-    .animate-scroll-left {
-      animation: scroll-left 40s linear infinite;
-    }
     .animate-scroll-right {
       animation: scroll-right 40s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-scroll-right,
+      [data-aos] {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </section>
