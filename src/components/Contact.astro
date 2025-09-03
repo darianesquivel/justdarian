@@ -21,11 +21,7 @@ import SocialMedia from "./SocialMedia.astro";
         data-aos="fade-up"
         class="flex-1 text-white rounded-2xl flex items-center justify-center"
       >
-        <form
-          action="https://formspree.io/f/mnnbgdkd"
-          method="POST"
-          class="flex flex-col gap-4 w-full"
-        >
+        <form id="contact-form" class="flex flex-col gap-4 w-full">
           <input
             type="text"
             name="nombre"
@@ -55,6 +51,7 @@ import SocialMedia from "./SocialMedia.astro";
           >
             Enviar mensaje
           </button>
+          <p id="form-status" class="text-white text-center mt-2"></p>
         </form>
       </div>
 
@@ -72,4 +69,40 @@ import SocialMedia from "./SocialMedia.astro";
     </div>
   </div>
   <img src="/images/waves2.svg" />
+
+  <script>
+    const form = document.getElementById(
+      "contact-form"
+    ) as HTMLFormElement | null;
+    const status = document.getElementById("form-status") as HTMLElement | null;
+    const formUrl = "https://formspree.io/f/mnnbgdkd";
+
+    if (form && status) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        status.textContent = "Enviando...";
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(formUrl, {
+            method: "POST",
+            body: formData,
+            headers: { Accept: "application/json" },
+          });
+
+          if (response.ok) {
+            status.textContent = "¡Mensaje enviado con éxito!";
+            form.reset();
+          } else {
+            status.textContent =
+              "Error al enviar. Fijate mis otros medios de contacto y enviame un mensaje! :).";
+          }
+        } catch (error) {
+          status.textContent =
+            "Error de red. Fijate mis otros medios de contacto y enviame un mensaje! :).";
+        }
+      });
+    }
+  </script>
 </section>
