@@ -21,7 +21,11 @@ import SocialMedia from "./SocialMedia.astro";
         data-aos="fade-up"
         class="flex-1 text-white rounded-2xl flex items-center justify-center"
       >
-        <form action="#" method="POST" class="flex flex-col gap-4 w-full">
+        <form
+          action="https://formspree.io/f/mnnbgdkd"
+          method="POST"
+          class="flex flex-col gap-4 w-full"
+        >
           <input
             type="text"
             name="nombre"
@@ -38,12 +42,12 @@ import SocialMedia from "./SocialMedia.astro";
             required
           />
 
-          <textarea
-            name="mensaje"
+          <textareamen
+            name="message"
             rows="5"
             placeholder="Escribe tu mensaje..."
             class="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary resize-none bg-primary"
-            required></textarea>
+            required></textareamen>
 
           <button
             type="submit"
@@ -59,7 +63,8 @@ import SocialMedia from "./SocialMedia.astro";
         data-aos="fade-up"
         class="flex-1 flex flex-col items-center justify-center gap-4"
       >
-        <h2 class="text-xl text-white font-bold text-center">
+        <img src="/images/e-mail.svg" />
+        <h2 class="text-xl text-white font-extrabold text-center">
           OTROS MEDIOS DE CONTACTO
         </h2>
         <SocialMedia />
