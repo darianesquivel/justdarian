@@ -7,16 +7,18 @@
   >
     <div>
       <a
-        href="#"
-        class="text-lg md:text-2xl font-extrabold animate-pulse transition-transform duration-300 hover:scale-110"
-        >justdarian</a
+        href="/"
+        aria-label="Ir al inicio"
+        class="text-lg md:text-2xl font-extrabold"
       >
+        justdarian
+      </a>
     </div>
 
     <nav
       class="hidden md:flex gap-6 lg:gap-10 font-extrabold items-center text-xs md:text-sm"
     >
-      <a href="#" class="transition-transform duration-300 hover:scale-110"
+      <a href="/" class="transition-transform duration-300 hover:scale-110"
         >INICIO</a
       >
       <a
@@ -38,7 +40,8 @@
         id="menu-btn"
         aria-expanded="false"
         aria-controls="mobile-menu"
-        class="p-2 flex flex-col gap-1.5 items-end focus:outline-none"
+        aria-label="Abrir menú"
+        class="p-2 flex flex-col gap-1.5 items-end focus:outline-none focus:ring-2 focus:ring-white rounded"
         type="button"
       >
         <span class="w-6 h-0.5 bg-white rounded"></span>
@@ -55,7 +58,7 @@
         aria-hidden="true"
       >
         <a
-          href="#"
+          href="/"
           class="block w-full text-left px-4 py-3 hover:bg-primary/80"
           role="menuitem">INICIO</a
         >
@@ -68,6 +71,11 @@
           href="#why-me"
           class="block w-full text-left px-4 py-3 hover:bg-primary/80"
           role="menuitem">POR QUE YO?</a
+        >
+        <a
+          href="#contact"
+          class="block w-full text-left px-4 py-3 hover:bg-primary/80"
+          role="menuitem">CONTACTO</a
         >
       </div>
     </div>
@@ -98,13 +106,13 @@
 
   menuBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
-    const isOpen = mobileMenu?.classList.contains("opacity-100");
+    const isOpen = mobileMenu?.classList.contains("max-h-[240px]");
     if (isOpen) closeMenu();
     else openMenu();
   });
 
   document.addEventListener("click", (e) => {
-    if (!wrapper?.contains(e.target as Node)) closeMenu();
+    if (e.target instanceof Node && !wrapper?.contains(e.target)) closeMenu();
   });
 
   document.addEventListener("keydown", (e) => {
