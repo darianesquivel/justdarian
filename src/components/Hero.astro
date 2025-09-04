@@ -4,12 +4,12 @@ import SocialMedia from "./SocialMedia.astro";
 
 <section
   id="index"
-  class="flex flex-col justify-center items-center w-full p-4 h-dvh relative"
+  class="flex flex-col justify-center items-center w-full p-4 h-full relative"
 >
-  <div class="flex flex-col justify-center items-center gap-10">
+  <div class="flex flex-col justify-center items-center gap-6">
     <h1
       data-aos="fade-up"
-      class="text-white text-base sm:text-2xl font-extrabold text-center bg-secondary p-2 px-4 rounded-2xl -rotate-4 uppercase"
+      class="text-white text-sm sm:text-2xl font-extrabold text-center bg-secondary p-2 px-4 rounded-2xl -rotate-4 uppercase"
     >
       <span class="block">
         <span class="font-mono">&lt;</span> Diseñador web,
@@ -28,14 +28,14 @@ import SocialMedia from "./SocialMedia.astro";
             loading="lazy"
           />
         </div>
-        <h2 class="bg-white rounded-full p-2 px-4 text-xl font-extrabold">
+        <h2 class="bg-white rounded-full p-2 px-4 text-lg font-extrabold">
           Hola, bienvenidos!
         </h2>
       </div>
 
       <div class="flex">
         <span
-          class="bg-white rounded-full p-2 px-4 text-xl font-extrabold"
+          class="bg-white rounded-full p-2 px-4 text-lg font-extrabold"
           aria-live="polite"
         >
           <span id="typewriter"></span><span id="cursor">|</span>
@@ -56,16 +56,15 @@ import SocialMedia from "./SocialMedia.astro";
     <div data-aos="fade-up" data-aos-delay="600">
       <SocialMedia />
     </div>
-  </div>
-
-  <div class="absolute bottom-10 animate-bounce">
-    <a href="#services" aria-label="Desplazate hacia la sección de servicios">
-      <img
-        src="/images/backhand-index-pointing-down.svg"
-        alt=""
-        aria-hidden="true"
-      />
-    </a>
+    <div data-aos="zoom-in" data-aos-delay="1200" class="animate-bounce inline">
+      <a href="#services" aria-label="Desplazate hacia la sección de servicios">
+        <img
+          src="/images/backhand-index-pointing-down.svg"
+          alt=""
+          aria-hidden="true"
+        />
+      </a>
+    </div>
   </div>
 
   <script>
