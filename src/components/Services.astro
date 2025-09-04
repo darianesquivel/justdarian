@@ -1,23 +1,27 @@
 <section
   id="services"
   class="flex flex-col justify-center items-center bg-secondary w-full"
+  aria-labelledby="services-heading"
 >
-  <img src="/images/waves.svg" />
+  <img src="/images/waves.svg" alt="" aria-hidden="true" />
 
   <div
     class="flex flex-col items-center justify-center gap-6 px-4 py-6 text-white"
   >
     <div class="flex flex-col sm:flex-row gap-4 items-center text-center">
       <h2
+        id="services-heading"
         data-aos="fade-up"
-        class="text-3xl sm:text-4xl md:text-5xl font-extrabold"
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase"
       >
-        EN QUE TE PUEDO AYUDAR?
+        En que te puedo ayudar?
       </h2>
       <img
         data-aos="fade-up"
         src="/images/rocket.svg"
         class="w-10 sm:w-12 md:w-16"
+        alt=""
+        aria-hidden="true"
       />
     </div>
 
@@ -33,8 +37,9 @@
             Me especializo en crear sitios que
             <span
               class="bg-primary px-3 py-1 inline-block -rotate-2 rounded-lg transition-transform duration-300 hover:scale-105 shadow-gray-900 shadow-lg"
-              >impactan.</span
             >
+              impactan.
+            </span>
           </p>
           <p
             data-aos="fade-up"
@@ -62,8 +67,11 @@
             <img
               src="/images/smiling-face-with-sunglasses.svg"
               class="w-10 sm:w-12"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
             />
-            <h2>Diseño web a tu estilo</h2>
+            <h3>Diseño web a tu estilo</h3>
             <p class="text-sm">
               Creo páginas con onda, originales y pensadas para que tu marca
               tenga identidad propia, atrape miradas y te haga destacar del
@@ -75,8 +83,14 @@
             data-aos="fade-up"
             class="flex items-center flex-col gap-2 bg-primary p-4 rounded-2xl w-full sm:w-72 shadow-gray-900 shadow-lg"
           >
-            <img src="/images/bar-chart.svg" class="w-10 sm:w-12" />
-            <h2>Desarrollo web que vuela</h2>
+            <img
+              src="/images/bar-chart.svg"
+              class="w-10 sm:w-12"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <h3>Desarrollo web que vuela</h3>
             <p class="text-sm">
               Hago sitios rápidos, seguros y listos para rendir al máximo. Todo
               pensado para que tus usuarios tengan una experiencia impecable.
@@ -92,8 +106,11 @@
             <img
               src="/images/globe-showing-americas.svg"
               class="w-10 sm:w-12"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
             />
-            <h2>SEO que te pone en el mapa</h2>
+            <h3>SEO que te pone en el mapa</h3>
             <p class="text-sm">
               Potencio tu web para que aparezca arriba en los buscadores. Más
               visibilidad, más visitas y clientes que realmente buscan lo que
@@ -105,8 +122,14 @@
             data-aos="fade-up"
             class="flex items-center flex-col gap-2 bg-primary p-4 rounded-2xl w-full sm:w-72 shadow-gray-900 shadow-lg"
           >
-            <img src="/images/selfie.svg" class="w-10 sm:w-12" />
-            <h2>Diseño web que se adapta a todo</h2>
+            <img
+              src="/images/selfie.svg"
+              class="w-10 sm:w-12"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <h3>Diseño web que se adapta a todo</h3>
             <p class="text-sm">
               Hago que tu página se vea increíble y funcione perfecto en
               cualquier pantalla. Así tus usuarios tienen siempre la mejor
@@ -117,5 +140,15 @@
       </div>
     </div>
   </div>
-  <img src="/images/waves2.svg" />
+
+  <img src="/images/waves2.svg" alt="" aria-hidden="true" />
+
+  <style is:global>
+    @media (prefers-reduced-motion: reduce) {
+      [data-aos] {
+        animation: none;
+        transition: none;
+      }
+    }
+  </style>
 </section>
