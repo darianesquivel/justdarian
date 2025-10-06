@@ -55,8 +55,8 @@ html {
 }
 
 @theme {
-  --color-primary: #0d1117;
-  --color-secondary: #f17ea6;
+  --color-primary: #231f20;
+  --color-secondary: #f7b5cd;
   --animate-wiggle: wiggle 1s ease-in-out infinite;
   @keyframes wiggle {
     0%,

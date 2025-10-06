@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.03 87.86">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .19em;
+      }
+
+      .cls-2 {
+        letter-spacing: .2em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        font-size: 24px;
+      }
+
+      .cls-4, .cls-5 {
+        font-family: Bahnschrift-Bold, Bahnschrift;
+        font-variation-settings: 'wght' 700, 'wdth' 100;
+        font-weight: 700;
+      }
+
+      .cls-6 {
+        fill: #f7b5cd;
+        letter-spacing: -.08em;
+      }
+
+      .cls-7 {
+        letter-spacing: .2em;
+      }
+
+      .cls-5 {
+        font-size: 72px;
+      }
+
+      .cls-8 {
+        letter-spacing: .18em;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <text class="cls-5" transform="translate(0 61.56)"><tspan class="cls-3" x="0" y="0">just</tspan><tspan class="cls-6" x="98.56" y="0">darian</tspan></text>
+    <text class="cls-4" transform="translate(57.57 81.37)"><tspan class="cls-1" x="0" y="0">w</tspan><tspan class="cls-2" x="23.13" y="0">eb d</tspan><tspan class="cls-8" x="87.63" y="0">e</tspan><tspan class="cls-1" x="104.83" y="0">v</tspan><tspan class="cls-7" x="121.4" y="0">eloper</tspan></text>
+  </g>
+</svg>
