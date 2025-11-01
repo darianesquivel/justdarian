@@ -64,17 +64,15 @@ const pricing = [
 ];
 
 const DOLAR_OFICIAL_API = "https://dolarapi.com/v1/dolares/oficial";
-let dolarCompra = 0; // Precio de compra (lo que el banco te paga por tu USD)
+let dolarVenta = 1500;
 
 try {
-  // Realizar la solicitud a la API
   const response = await fetch(DOLAR_OFICIAL_API);
 
   if (response.ok) {
     const data = await response.json();
 
-    // Almacenamos el valor de 'compra'
-    dolarCompra = data.compra;
+    dolarVenta = data.venta;
   } else {
     console.error(
       `Error al obtener la cotización: ${response.status} ${response.statusText}`
@@ -84,15 +82,9 @@ try {
   console.error("Error en la solicitud fetch:", error);
 }
 
-/**
- * Convierte un monto en dólares (USD) a pesos argentinos (ARS).
- * @param dolares El monto en USD a convertir.
- * @returns El monto en ARS, o 'N/A' si la cotización no está disponible.
- */
 const dolarsToArs = (dolares: number): string => {
-  if (dolarCompra > 0) {
-    // Multiplicamos el monto en USD por el precio de compra.
-    const resultado = dolares * dolarCompra;
+  if (dolarVenta > 0) {
+    const resultado = dolares * dolarVenta;
     return resultado.toFixed(2);
   }
   return "N/A";
@@ -168,7 +160,7 @@ const dolarsToArs = (dolares: number): string => {
             </ul>
             <a
               href="#contact"
-              class="w-full bg-secondary text-white font-extrabold rounded-full p-2 px-4 transition-transform duration-300 hover:scale-110 text-center uppercase mt-auto"
+              class="w-full border-2 border-secondary text-secondary font-extrabold rounded-full p-2 px-4 transition-transform duration-300 hover:scale-110 text-center uppercase mt-auto"
             >
               Consultar
             </a>

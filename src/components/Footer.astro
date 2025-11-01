@@ -1,15 +1,15 @@
 ---
-import SocialMedia from "./SocialMedia.astro";
+const currentYear = new Date().getFullYear();
 ---
 
 <footer
   class="relative flex justify-center items-center h-[400px] bg-[url('/images/footer-bg.svg')] bg-cover bg-center"
 >
   <div class="relative flex flex-col gap-4 text-white">
-    <SocialMedia />
     <span class="text-xs">
-      Copyright © 2025 <span class="font-extrabold">justdarian</span>. Todos
-      los derechos reservados.
+      Copyright © {currentYear}
+      <span class="font-extrabold">justdarian</span>. Todos los derechos
+      reservados.
     </span>
   </div>
 </footer>

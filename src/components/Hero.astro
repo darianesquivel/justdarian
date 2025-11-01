@@ -1,131 +1,112 @@
 ---
 import SocialMedia from "./SocialMedia.astro";
+
+const MAIN_MESSAGE =
+  "Ingeniería Full-Stack que eleva tu negocio al futuro digital.";
+const CALL_TO_ACTION = "Contactame !";
 ---
 
 <section
   id="hero"
-  class="flex flex-col justify-center items-center w-full p-4 h-full relative"
+  class="relative w-full min-h-dvh flex flex-col overflow-hidden bg-primary text-white pt-20"
 >
-  <div class="flex flex-col justify-center items-center gap-6">
-    <h1
-      data-aos="fade-up"
-      class="text-white text-sm sm:text-2xl font-extrabold text-center bg-secondary p-2 px-4 rounded-2xl -rotate-4 uppercase"
+  <div
+    class="relative z-10 min-h-dvh flex flex-col px-6 md:px-12 max-w-7xl mx-auto w-full justify-center gap-10"
+  >
+    <div
+      class="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-5"
     >
-      <span class="block">
-        <span class="font-mono">&lt;</span> Diseñador web,
-      </span>
-      <span class="block">
-        tu proyecto, mi código <span class="font-mono">/&gt;</span>
-      </span>
-    </h1>
-    <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col gap-2">
-      <div class="flex gap-1 items-end">
-        <div class="bg-white rounded-full">
+      <div
+        class="flex flex-col justify-center lg:justify-start items-center lg:items-start text-center lg:text-left"
+      >
+        <h1
+          data-aos="fade-up"
+          data-aos-delay="100"
+          class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-secondary max-w-xl"
+        >
+          {MAIN_MESSAGE}
+        </h1>
+
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          class="text-lg md:text-xl text-white/70 mb-10 max-w-xl"
+        >
+          Desarrollador Full-Stack especializado en transformar ideas complejas
+          en experiencias web y móviles rápidas, escalables y con un diseño
+          impecable.
+        </p>
+
+        <div
+          data-aos="fade-up"
+          data-aos-delay="300"
+          class="flex flex-col sm:flex-row items-center gap-6"
+        >
+          <a
+            href="#services"
+            aria-label="Ir a la sección de servicios"
+            class="border-2 border-secondary text-secondary font-bold text-lg rounded-full p-2 px-8 transition-all duration-300 hover:scale-[1.05] uppercase whitespace-nowrap"
+          >
+            {CALL_TO_ACTION}
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col justify-center lg:justify-start items-center lg:items-end"
+      >
+        <div data-aos="fade-up" class="flex flex-col items-center lg:items-end">
           <img
             src="/images/avatar.webp"
-            alt="Foto de justdarian"
-            class="w-30 h-30 rounded-full"
+            alt="Foto de perfil de Darian"
+            class="w-48 h-48 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 animate-scale-pulse border-secondary shadow-2xl"
             loading="lazy"
           />
         </div>
-        <h2 class="bg-white rounded-full p-2 px-4 text-lg font-extrabold">
-          Hola, bienvenidos!
-        </h2>
-      </div>
-
-      <div class="flex">
-        <span
-          class="bg-white rounded-full p-2 px-4 text-lg font-extrabold"
-          aria-live="polite"
-        >
-          <span id="typewriter"></span><span id="cursor">|</span>
-        </span>
       </div>
     </div>
 
-    <div data-aos="fade-up" data-aos-delay="400" class="flex justify-center">
-      <a
-        href="#contact"
-        aria-label="Ir a la sección de contacto"
-        class="bg-secondary text-sm text-white font-extrabold rounded-full p-2 px-4 transition-transform duration-300 hover:scale-120 animate-[wiggle_1s_ease-in-out_infinite] uppercase"
-      >
-        Contactame !
-      </a>
-    </div>
-
-    <div data-aos="fade-up" data-aos-delay="600">
+    <div
+      data-aos="fade-up"
+      data-aos-delay="400"
+      class="flex flex-col gap-5 justify-center items-center pb-10"
+    >
       <SocialMedia />
-    </div>
-    <div data-aos="zoom-in" data-aos-delay="1200" class="animate-bounce inline">
-      <a href="#services" aria-label="Desplazate hacia la sección de servicios">
-        <img
-          src="/images/backhand-index-pointing-down.svg"
-          alt=""
-          aria-hidden="true"
-        />
+      <a
+        href="#services"
+        aria-label="Desplazate hacia la sección de servicios"
+        class="animate-bounce text-secondary hover:text-white transition-colors duration-300 z-20"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-8 h-8"
+        >
+          <path d="M12 5v14M19 12l-7 7-7-7"></path>
+        </svg>
       </a>
     </div>
   </div>
 
-  <script>
-    const texts = [
-      "Soy Darian...",
-      "Soy desarrollador...",
-      "Diseño y desarrollo tu web...",
-      "Sitios rápidos y con estilo...",
-      "Te ayudo a crecer online!",
-    ];
-
-    const typewriter = document.getElementById("typewriter");
-    const cursor = document.getElementById("cursor");
-
-    let currentText = 0;
-    let currentContent = "";
-    const speed = 70;
-
-    setInterval(() => {
-      if (cursor)
-        cursor.style.visibility =
-          cursor.style.visibility === "visible" ? "hidden" : "visible";
-    }, 500);
-
-    function getCommonPrefix(a: string, b: string) {
-      let i = 0;
-      while (i < a.length && i < b.length && a[i] === b[i]) i++;
-      return i;
-    }
-
-    function type() {
-      const nextText = texts[currentText];
-      const commonLength = getCommonPrefix(currentContent, nextText);
-
-      if (currentContent.length > commonLength) {
-        currentContent = currentContent.slice(0, currentContent.length - 1);
-        if (typewriter) typewriter.textContent = currentContent;
-        setTimeout(type, speed / 2);
-      } else if (currentContent.length < nextText.length) {
-        currentContent += nextText[currentContent.length];
-        if (typewriter) typewriter.textContent = currentContent;
-        setTimeout(type, speed);
-      } else {
-        setTimeout(() => {
-          currentText = (currentText + 1) % texts.length;
-          type();
-        }, 2000);
-      }
-    }
-
-    type();
-  </script>
-
   <style is:global>
-    @media (prefers-reduced-motion: reduce) {
-      .animate-[wiggle_1s_ease-in-out_infinite],
-      .animate-bounce,
-      [data-aos] {
-        animation: none !important;
-        transition: none !important;
+    @keyframes scale-pulse {
+      0%,
+      100% {
+        transform: scale(1);
       }
+      50% {
+        transform: scale(1.04);
+      }
+    }
+    .animate-scale-pulse {
+      animation: scale-pulse 3s ease-in-out infinite;
     }
   </style>
 </section>
