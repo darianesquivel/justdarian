@@ -12,16 +12,17 @@ import "../styles/global.css";
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.justdarian.com" />
 
-    <title>justdarian – Diseñador y desarrollador web</title>
+    <title>
+      justdarian – Desarrollo Web a Medida. Diseño y Programación de Sistemas
+    </title>
     <meta
       name="description"
-      content="Soy justdarian, diseñador y desarrollador web. Creo sitios web modernos, responsive y optimizados para tu negocio."
+      content="Creo landing pages y aplicaciones con diseño que vende y optimización SEO total. Soluciones web sólidas, pensadas para tu crecimiento. ¡Conversemos tu proyecto!"
     />
     <meta
       name="keywords"
-      content="diseñador web, desarrollador web, freelance, responsive, SEO, sitios web, proyectos web"
+      content="desarrollo web, sistemas a medida, diseñador web, desarrollador web, freelance, desarrollo de aplicaciones custom, landing pages, sitios web, proyectos web, SEO optimizado, diseño que convierte, responsive, alta velocidad de carga, React developer, Node.js experto, arquitectura de sistemas, desarrollador freelance full-stack, presupuesto sitio web, experiencia de usuario (UX), soluciones web para empresas"
     />
-
     <meta
       property="og:title"
       content="justdarian – Diseñador y desarrollador web"
@@ -56,11 +57,24 @@ import "../styles/global.css";
     <link rel="apple-touch-icon" href="/favicon.png" />
 
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Trusted Types Policy -->
+    <script is:inline>
+      if (window.trustedTypes && window.trustedTypes.createPolicy) {
+        window.trustedTypes.createPolicy("default", {
+          createHTML: (string) => string,
+          createScript: (string) => string,
+          createScriptURL: (string) => string,
+        });
+      }
+    </script>
   </head>
 
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
 
     <script is:inline src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer
