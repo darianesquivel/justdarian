@@ -52,6 +52,7 @@ const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
     {
       item.price ? (
         <div>
+          <p class="uppercase text-xs">desde</p>
           <p
             class={`font-bold text-2xl ${item.salePrice && "line-through font-extralight text-xs"}`}
           >
@@ -85,7 +86,15 @@ const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
     {
       item.features.map((feature) => (
         <li class="flex items-start gap-2">
-          <span class="text-sm">✓ {feature}</span>
+          <div class="flex gap-2">
+            <img
+              src={`/images/high-voltage.svg`}
+              class="w-5 sm:w-6"
+              alt=""
+              aria-hidden="true"
+            />
+            <span class="text-sm">{feature}</span>
+          </div>
         </li>
       ))
     }
