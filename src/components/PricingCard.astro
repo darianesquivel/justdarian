@@ -1,0 +1,101 @@
+---
+import { dolarsToArs } from "../utils/dolarToArs";
+
+interface Item {
+  title: string;
+  description: string;
+  bestSeller: boolean;
+  price?: number;
+  salePrice?: number;
+  features: string[];
+}
+
+interface Props {
+  item: Item;
+}
+
+const { item } = Astro.props as Props;
+const phoneNumber = "5491121547438";
+const message = encodeURIComponent(
+  `Quiero más información sobre ${item.title}`
+);
+const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+---
+
+<div
+  class="relative flex flex-col items-center gap-4 bg-primary p-6 rounded-2xl shadow-gray-900 shadow-lg transition-transform duration-300 hover:scale-105 h-full"
+>
+  {
+    item.bestSeller && (
+      <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary shadow-gray-900 shadow-lg  text-primary font-extrabold px-4 py-1 rounded-full text-sm uppercase z-10">
+        Más vendido
+      </div>
+    )
+  }
+
+  {
+    (
+      <div class="absolute -top-7 sm:-right-6 -right-2 z-20">
+        <img src="/images/cybermonday.svg" class="h-20 w-20" />
+      </div>
+    )
+  }
+
+  <div class="w-full text-center">
+    <h3 class="text-2xl font-extrabold mb-2 uppercase">
+      {item.title}
+    </h3>
+    <p class="text-sm mb-4">{item.description}</p>
+  </div>
+
+  <div class="w-full mb-4 text-center">
+    {
+      item.price ? (
+        <div>
+          <p
+            class={`font-bold text-2xl ${item.salePrice && "line-through font-extralight text-xs"}`}
+          >
+            {item.price} USD
+          </p>
+          {!item.salePrice && (
+            <p class="text-xs">ARS {dolarsToArs(item.price)}</p>
+          )}
+        </div>
+      ) : (
+        <div>
+          <p class="min-h-4" />
+          <p class="uppercase text-secondary font-bold text-2xl">A consultar</p>
+          <p class="min-h-4" />
+        </div>
+      )
+    }
+    {
+      item.salePrice && (
+        <div>
+          <p class="font-bold text-2xl text-secondary">{item.salePrice} USD</p>
+          <p class="text-xs">ARS {dolarsToArs(item.salePrice)}</p>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="w-full border-t border-gray-300"></div>
+
+  <ul class="space-y-3 mb-6 w-full flex-grow">
+    {
+      item.features.map((feature) => (
+        <li class="flex items-start gap-2">
+          <span class="text-sm">✓ {feature}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <a
+    href={whatsappLink}
+    target="_blank"
+    class="w-full border-2 border-secondary text-secondary font-extrabold rounded-full p-2 px-4 transition-transform duration-300 hover:scale-110 text-center uppercase mt-auto"
+  >
+    Consultar
+  </a>
+</div>

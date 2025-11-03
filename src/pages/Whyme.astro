@@ -1,31 +1,5 @@
 ---
-const cards = [
-  {
-    title: "Experiencia que se nota",
-    icon: "briefcase",
-    text: "Llevo años creando y perfeccionando sitios web. Sé lo que funciona y cómo hacerlo brillar.",
-  },
-  {
-    title: "Creatividad que te hace destacar",
-    icon: "artist-palette",
-    text: "La clave para diferenciarte es ofrecer experiencias únicas que conecten con tu audiencia y dejen huella.",
-  },
-  {
-    title: "Flexibilidad total",
-    icon: "joker",
-    text: "Me adapto a vos y a lo que tu proyecto necesita, porque cada cliente es único.",
-  },
-  {
-    title: "Atención al detalle",
-    icon: "magnifying-glass",
-    text: "Los pequeños detalles marcan la diferencia. Me aseguro de que todo en tu proyecto sea perfecto.",
-  },
-  {
-    title: "Transparencia total",
-    icon: "right-anger-bubble",
-    text: "La comunicación fluida es el secreto para el éxito de cualquier proyecto.",
-  },
-];
+import { whymecards } from "../constants/whyme-cards";
 ---
 
 <section id="why-me" class="bg-primary" aria-labelledby="why-me-heading">
@@ -45,7 +19,7 @@ const cards = [
     {
       (
         <div class="animate-scroll-right flex gap-6 w-max">
-          {cards.concat(cards).map((card, i) => (
+          {whymecards.concat(whymecards).map((card, i) => (
             <div
               class="flex items-start bg-secondary rounded-xl p-6 gap-4 shadow-lg flex-shrink-0 w-[90vw] sm:w-auto sm:min-w-[350px] shadow-gray-800"
               data-aos="fade-up"
