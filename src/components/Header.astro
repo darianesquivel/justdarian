@@ -1,5 +1,6 @@
 <header
-  class="w-full flex justify-center items-center fixed z-50
+  id="main-header"
+  class="w-full flex justify-center items-center fixed z-50 transition-transform duration-300 ease-out
          bg-gradient-to-b from-primary/95 to-transparent backdrop-blur-xs rounded-b-xl"
 >
   <div
@@ -116,7 +117,6 @@
     mobileMenu?.classList.add(...openClasses);
     mobileMenu?.setAttribute("aria-hidden", "false");
     menuBtn?.setAttribute("aria-expanded", "true");
-    // Hacer los enlaces enfocables cuando el menú está visible
     mobileMenu?.querySelectorAll("a").forEach((a) => {
       a.removeAttribute("tabindex");
     });
@@ -127,7 +127,6 @@
     mobileMenu?.classList.add(...closeClasses);
     mobileMenu?.setAttribute("aria-hidden", "true");
     menuBtn?.setAttribute("aria-expanded", "false");
-    // Remover los enlaces del flujo de tabulación cuando el menú está oculto
     mobileMenu?.querySelectorAll("a").forEach((a) => {
       a.setAttribute("tabindex", "-1");
     });
@@ -151,4 +150,43 @@
   mobileMenu?.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => closeMenu());
   });
+
+  const header = document.getElementById("main-header");
+  const mobileBreakpoint = 768;
+
+  if (header && window.innerWidth >= mobileBreakpoint) {
+    const headerHeight = header.offsetHeight;
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 100;
+
+    function handleScroll(e: Event) {
+      if (!header) return;
+
+      if (window.scrollY <= scrollThreshold) {
+        header.style.transform = "translateY(0)";
+        lastScrollY = window.scrollY;
+        return;
+      }
+
+      if (window.scrollY > lastScrollY && window.scrollY > headerHeight) {
+        header.style.transform = `translateY(-${headerHeight}px)`;
+      } else if (window.scrollY < lastScrollY) {
+        header.style.transform = "translateY(0)";
+      }
+
+      lastScrollY = window.scrollY;
+    }
+
+    function handleMouseMove(e: MouseEvent) {
+      if (!header) return;
+      const isHidden = header.style.transform.includes("-");
+
+      if (isHidden && e.clientY < 20) {
+        header.style.transform = "translateY(0)";
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousemove", handleMouseMove);
+  }
 </script>
