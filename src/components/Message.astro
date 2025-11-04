@@ -1,0 +1,47 @@
+---
+const BASE_MESSAGE = `
+    <span class="highlight pl-12"> ✦ Disfruta de 1 año sin preocupaciones ✦ </span>
+    <span class="opacity-80 pl-12"> Soporte y mantenimiento técnico para cualquier inconveniente incluido. </span>
+    <span class="highlight pl-12"> ✦ ¡Calidad garantizada! ✦</span>
+    <span class="opacity-80 pl-12 highlight"> Las modificaciones post-lanzamiento <strong class="text-primary">NO</strong> están incluidas, consulta opciones de servicio. </span>`;
+
+const REPEAT = 10;
+const MESSAGE = Array(REPEAT).fill(BASE_MESSAGE).join(" | ");
+---
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+<div
+  data-aos="fade-up"
+  class="flex justify-center items-center h-20 mt-5 mb-20 relative overflow-hidden whitespace-nowrap text-white py-3 select-none bg-secondary"
+>
+  <div
+    class="inline-block animate-[scroll_340s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused]"
+  >
+    <div
+      class="inline-block min-w-[200%] font-extrabold uppercase text-2xl tracking-wider"
+    >
+      <span
+        set:html={MESSAGE.replaceAll(
+          "|",
+          `<span class='opacity-40 px-12'>|</span>`
+        )}
+      />
+      <span
+        set:html={MESSAGE.replaceAll(
+          "|",
+          `<span class='opacity-40 px-12'>|</span>`
+        )}
+      />
+    </div>
+  </div>
+</div>

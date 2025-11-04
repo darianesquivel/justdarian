@@ -58,6 +58,10 @@ html {
   --color-primary: #231f20;
   --color-secondary: #f7b5cd;
   --animate-wiggle: wiggle 1s ease-in-out infinite;
+
+  --secondary-r: 247;
+  --secondary-g: 181;
+  --secondary-b: 205;
   @keyframes wiggle {
     0%,
     100% {
