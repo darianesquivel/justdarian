@@ -71,27 +71,32 @@
         <a
           href="#hero"
           class="block w-full text-left px-4 py-3 hover:bg-primary/80 uppercase"
-          role="menuitem">Inicio</a
+          role="menuitem"
+          tabindex="-1">Inicio</a
         >
         <a
           href="#services"
           class="block w-full text-left px-4 py-3 hover:bg-primary/80 uppercase"
-          role="menuitem">Servicios</a
+          role="menuitem"
+          tabindex="-1">Servicios</a
         >
         <a
           href="#why-me"
           class="block w-full text-left px-4 py-3 hover:bg-primary/80 uppercase"
-          role="menuitem">Por que yo?</a
+          role="menuitem"
+          tabindex="-1">Por que yo?</a
         >
         <a
           href="#pricing"
           class="block w-full text-left px-4 py-3 hover:bg-primary/80 uppercase"
-          role="menuitem">Precios</a
+          role="menuitem"
+          tabindex="-1">Precios</a
         >
         <a
           href="#contact"
           class="block w-full text-left px-4 py-3 hover:bg-primary/80 uppercase"
-          role="menuitem">Contacto</a
+          role="menuitem"
+          tabindex="-1">Contacto</a
         >
       </div>
     </div>
@@ -111,6 +116,10 @@
     mobileMenu?.classList.add(...openClasses);
     mobileMenu?.setAttribute("aria-hidden", "false");
     menuBtn?.setAttribute("aria-expanded", "true");
+    // Hacer los enlaces enfocables cuando el menú está visible
+    mobileMenu?.querySelectorAll("a").forEach((a) => {
+      a.removeAttribute("tabindex");
+    });
   }
 
   function closeMenu() {
@@ -118,6 +127,10 @@
     mobileMenu?.classList.add(...closeClasses);
     mobileMenu?.setAttribute("aria-hidden", "true");
     menuBtn?.setAttribute("aria-expanded", "false");
+    // Remover los enlaces del flujo de tabulación cuando el menú está oculto
+    mobileMenu?.querySelectorAll("a").forEach((a) => {
+      a.setAttribute("tabindex", "-1");
+    });
   }
 
   menuBtn?.addEventListener("click", (e) => {
