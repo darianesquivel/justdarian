@@ -1,10 +1,10 @@
 export const pricing = [
   {
     title: "Landing Page",
-    description: "Perfecta para lanzamientos y campañas",
+    description: "Para lanzamientos y campañas",
     bestSeller: false,
     price: 280,
-    salePrice: 250,
+    // salePrice: 250,
     features: [
       "Dominio incluido",
       "Hosting incluido",
@@ -19,7 +19,7 @@ export const pricing = [
     title: "Web Corporativa",
     bestSeller: true,
     price: 470,
-    salePrice: 440,
+    // salePrice: 440,
     description: "Para empresas y profesionales",
     features: [
       "Dominio incluido",
@@ -34,7 +34,7 @@ export const pricing = [
   {
     title: "E-commerce",
     price: 760,
-    salePrice: 730,
+    // salePrice: 730,
     bestSeller: false,
     description: "Tienda online completa",
     features: [
