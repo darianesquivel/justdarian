@@ -1,6 +1,8 @@
 <div id="countdown-bar-container" class="fixed top-0 left-0 w-full p-2  text-white z-50 text-center font-sans">
   <div class="h-[20px] flex items-center justify-center overflow-hidden">
-    <span id="countdown-display-bar" class="text-xs sm:text-sm font-semibold tracking-wide rounded-2xl">
+    <img src={"/images/christmas-tree.svg"} class="w-5" alt="" aria-hidden="true"/>
+    <img src={"/images/santa-claus.svg"} class="w-5" alt="" aria-hidden="true"/>
+    <span id="countdown-display-bar" class="text-xs sm:text-sm font-semibold tracking-wide rounded-2xl px-2">
       Cargando...
     </span>
     </div>
@@ -60,8 +62,7 @@
     
     const pad = (n: number) => String(n).padStart(2, '0');
 
-    const displayString = 
-      ` 🎅🏼 🎁 🎄 ${pad(time.days)} días ${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
+    const displayString = `${pad(time.days)} días ${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
 
     countdownDisplay.textContent = displayString;
   }
