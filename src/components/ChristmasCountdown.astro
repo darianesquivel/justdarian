@@ -1,0 +1,70 @@
+<div id="countdown-bar-container" class="fixed top-0 left-0 w-full p-2  text-white z-50 text-center font-sans">
+  <div class="h-[20px] flex items-center justify-center overflow-hidden">
+    <span id="countdown-display-bar" class="text-xs sm:text-sm font-semibold tracking-wide rounded-2xl">
+      Cargando...
+    </span>
+    </div>
+</div>
+
+<script>
+  interface TimeComponents {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  }
+
+  const userTimeZone: string = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  function getChristmasTargetTime(year: number, timezone: string): number {
+
+    let targetDate = new Date(year, 11, 25, 0, 0, 0, 0); 
+
+    if (Date.now() > targetDate.getTime()) {
+      targetDate = new Date(year + 1, 11, 25, 0, 0, 0, 0);
+    }
+    
+    return targetDate.getTime();
+  }
+  function calculateTimeComponents(distance: number): TimeComponents {
+    const oneSecond = 1000;
+    const oneMinute = oneSecond * 60;
+    const oneHour = oneMinute * 60;
+    const oneDay = oneHour * 24;
+
+    const days = Math.floor(distance / oneDay);
+    const hours = Math.floor((distance % oneDay) / oneHour);
+    const minutes = Math.floor((distance % oneHour) / oneMinute);
+    const seconds = Math.floor((distance % oneMinute) / oneSecond);
+
+    return { days, hours, minutes, seconds };
+  }
+
+  function updateCountdown(): void {
+    const now = new Date().getTime();
+    const currentYear = new Date().getFullYear();
+    const countdownDisplay = document.getElementById('countdown-display-bar') as HTMLSpanElement | null;
+
+    if (!countdownDisplay) return;
+
+    const christmasTargetTime: number = getChristmasTargetTime(currentYear, userTimeZone);
+    const distance: number = christmasTargetTime - now;
+
+    if (distance <= 0) {
+      clearInterval(interval);
+      countdownDisplay.innerHTML = "🎄 ¡FELIZ NAVIDAD! 🎁";
+      return;
+    }
+
+    const time: TimeComponents = calculateTimeComponents(distance);
+    
+    const pad = (n: number) => String(n).padStart(2, '0');
+
+    const displayString = 
+      ` 🎅🏼 🎁 🎄 ${pad(time.days)} días ${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
+
+    countdownDisplay.textContent = displayString;
+  }
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+</script>
