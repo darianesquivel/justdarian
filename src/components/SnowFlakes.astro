@@ -1,6 +1,6 @@
 ---
 const numberOfFlakes = 100;
-const flakes = Array.from({ length: numberOfFlakes }).map(() => {
+const flakes = Array.from({ length: numberOfFlakes }).map((_, index) => {
   const layer = Math.floor(Math.random() * 3) + 1;
 
   const sizeMultiplier = layer * 0.4;
@@ -12,22 +12,25 @@ const flakes = Array.from({ length: numberOfFlakes }).map(() => {
   const xPos = Math.random() * 100;
   const windOffset = (Math.random() * 20 - 10) * speedMultiplier;
   const windDirection = windOffset > 0 ? 1 : -1;
+  
+  const mobileHideClass = index % 5 !== 0 ? 'mobile-hide' : '';
 
   return {
+    class: `snowflake ${mobileHideClass}`,
     style: `--flake-size: ${size}px; 
             --flake-x-pos: ${xPos}%; 
             --flake-duration: ${duration}s; 
             --flake-delay: ${delay}s;
             --flake-wind-offset: ${Math.abs(windOffset)}vw; 
             --flake-wind-direction: ${windDirection};
-            --flake-opacity: ${0.3 + layer * 0.2}; /* Más transparentes los lejanos */
+            --flake-opacity: ${0.3 + layer * 0.2};
             z-index: ${layer * 10};`,
   };
 });
 ---
 
 <div class="snow-container">
-  {flakes.map((flake) => <div class="snowflake" style={flake.style} />)}
+  {flakes.map((flake) => <div class={flake.class} style={flake.style} />)}
 </div>
 
 <style is:global is:inline>
@@ -43,30 +46,25 @@ const flakes = Array.from({ length: numberOfFlakes }).map(() => {
   }
 
   .snowflake {
-    /* CSS Puro */
     position: absolute;
     background-color: white;
     border-radius: 50%;
-    /* Usamos la opacidad dinámica en lugar del valor fijo */
     opacity: var(--flake-opacity);
 
-    /* Variables inyectadas */
     width: var(--flake-size);
     height: var(--flake-size);
     left: var(--flake-x-pos);
-    z-index: var(z-index); /* Aplicamos el z-index de la capa */
+    z-index: var(z-index);
 
-    /* Animación */
+    will-change: transform;
+
     animation-name: fall;
     animation-duration: var(--flake-duration);
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-delay: var(--flake-delay);
-
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
   }
 
-  /* Keyframes (no necesitan cambios, siguen usando 'transform: translate(X, Y)') */
   @keyframes fall {
     0% {
       transform: translate(0, -10vh);
@@ -79,6 +77,12 @@ const flakes = Array.from({ length: numberOfFlakes }).map(() => {
     }
     100% {
       transform: translate(0, 110vh);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mobile-hide {
+      display: none !important;
     }
   }
 </style>
