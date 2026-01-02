@@ -1,7 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import SnowFlakes from "../components/SnowFlakes.astro";
 // import SnowFlakes from "../components/SnowFlakes.astro";
 import "../styles/global.css";
 ---
@@ -59,7 +58,6 @@ import "../styles/global.css";
 
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-    <!-- Trusted Types Policy -->
     <script is:inline>
       if (window.trustedTypes && window.trustedTypes.createPolicy) {
         window.trustedTypes.createPolicy("default", {
@@ -75,7 +73,7 @@ import "../styles/global.css";
     <Header />
     <main>
       <slot />
-      <SnowFlakes />
+      <!-- <SnowFlakes /> -->
     </main>
     <Footer />
 

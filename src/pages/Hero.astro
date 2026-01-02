@@ -52,24 +52,15 @@ const CALL_TO_ACTION = "Contactame !";
           </a>
         </div>
       </div>
-        <div
-          data-aos="fade-up"
-          class="flex flex-col animate-scale-pulse"
-        >
-          <!-- <img
-            src="/images/avatar.svg"
-            alt="Foto de perfil de Darian"
-            class="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full animate-secondary-pulse object-cover pt-1"
-            loading="lazy"
-            fetchpriority="high"
-          /> -->
-          <img
-            src="/images/avatar-christmas.svg"
-            alt="Foto de perfil de Darian"
-            class="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full animate-scale-pulse shadow-2xl shadow-secondary object-cover pt-1"
-            loading="lazy"
-          />
-        </div>
+      <div data-aos="fade-up" class="flex flex-col animate-scale-pulse">
+        <img
+          src="/images/avatar1.svg"
+          alt="Foto de perfil de Darian"
+          class="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full animate-scale-pulse shadow-2xl shadow-secondary object-cover pt-5"
+          loading="lazy"
+          fetchpriority="high"
+        />
+      </div>
     </div>
 
     <div
@@ -118,16 +109,19 @@ const CALL_TO_ACTION = "Contactame !";
     @keyframes secondary-pulse {
       0%,
       100% {
-        box-shadow: 0 25px 50px -12px rgba(var(--secondary-r), var(--secondary-g), var(--secondary-b), 0.3);
+        box-shadow: 0 25px 50px -12px
+          rgba(var(--secondary-r), var(--secondary-g), var(--secondary-b), 0.3);
       }
       50% {
-        box-shadow: 0 25px 50px -10px rgba(var(--secondary-r), var(--secondary-g), var(--secondary-b), 0.8);
+        box-shadow: 0 25px 50px -10px
+          rgba(var(--secondary-r), var(--secondary-g), var(--secondary-b), 0.8);
       }
     }
 
     .animate-secondary-pulse {
       animation: secondary-pulse 3s ease-in-out infinite alternate;
-      box-shadow: 0 25px 50px -12px rgba(var(--secondary-r), var(--secondary-g), var(--secondary-b), 0.3);
+      box-shadow: 0 25px 50px -12px
+        rgba(var(--secondary-r), var(--secondary-g), var(--secondary-b), 0.3);
     }
   </style>
 

@@ -4,7 +4,7 @@ export const pricing = [
     description: "Para lanzamientos y campañas",
     bestSeller: false,
     price: 280,
-    // salePrice: 250,
+    // salePrice: null,
     features: [
       "Dominio incluido",
       "Hosting incluido",
@@ -19,7 +19,7 @@ export const pricing = [
     title: "Web Corporativa",
     bestSeller: true,
     price: 470,
-    // salePrice: 440,
+    // salePrice: null,
     description: "Para empresas y profesionales",
     features: [
       "Dominio incluido",
@@ -48,7 +48,7 @@ export const pricing = [
   {
     title: "E-commerce WordPress + WooCommerce",
     price: 760,
-    // salePrice: 730,
+    // salePrice: null,
     bestSeller: false,
     description: "Tienda online completa con control total, SEO avanzado y escalabilidad ilimitada.",
     features: [
