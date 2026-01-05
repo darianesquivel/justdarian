@@ -4,9 +4,10 @@ export const pricing = [
     description: "Para lanzamientos y campañas",
     bestSeller: false,
     price: 280,
+    priceArs: 390000,
     // salePrice: null,
     features: [
-      "Dominio incluido",
+      "Dominio .com.ar incluido",
       "Hosting incluido",
       "Diseño responsive",
       "Optimización SEO",
@@ -19,10 +20,11 @@ export const pricing = [
     title: "Web Corporativa",
     bestSeller: true,
     price: 470,
+    priceArs: 590000,
     // salePrice: null,
     description: "Para empresas y profesionales",
     features: [
-      "Dominio incluido",
+      "Dominio .com.ar incluido",
       "Hosting incluido",
       "Diseño responsive",
       "Optimización SEO",
@@ -48,11 +50,13 @@ export const pricing = [
   {
     title: "E-commerce WordPress + WooCommerce",
     price: 760,
+    priceArs: 920000,
     // salePrice: null,
     bestSeller: false,
-    description: "Tienda online completa con control total, SEO avanzado y escalabilidad ilimitada.",
+    description:
+      "Tienda online completa con control total, SEO avanzado y escalabilidad ilimitada.",
     features: [
-      "Dominio incluido",
+      "Dominio .com.ar incluido",
       "Hosting incluido",
       "Diseño responsive y a medida",
       "Optimización SEO avanzada",
@@ -62,18 +66,20 @@ export const pricing = [
       "Pasarela de pagos",
       "Panel de administración avanzado",
       "Entrega en 3-4 semanas",
-      "Desarrollo en Wordpress (Open Source)", // Se agrega el detalle de la tecnología
+      "Desarrollo en Wordpress (Open Source)",
     ],
   },
 
   {
     title: "Tienda Online con Tiendanube",
     price: 280,
-    // salePrice: null, 
+    priceArs: 300000,
+    // salePrice: null,
     bestSeller: true,
-    description: "Tu tienda profesional en la plataforma líder de Latam. Solución rápida y completa.",
+    description:
+      "Tu tienda profesional en la plataforma líder de Latam. Solución rápida y completa.",
     features: [
-      "Dominio incluido",
+      "Dominio .com.ar incluido",
       "Plataforma Tiendanube (SaaS)",
       "Diseño responsive",
       "Configuración de Medios de Pago y Envío básicos",
@@ -87,11 +93,13 @@ export const pricing = [
   {
     title: "Tienda Online con Empretienda",
     price: 280,
-    // salePrice: null, 
+    priceArs: 300000,
+    // salePrice: null,
     bestSeller: false,
-    description: "La opción más económica y simple para lanzar tu tienda. Ideal para emprendedores iniciales.",
+    description:
+      "La opción más económica y simple para lanzar tu tienda. Ideal para emprendedores iniciales.",
     features: [
-      "Dominio incluido",
+      "Dominio .com.ar incluido",
       "Plataforma Empretienda (SaaS)",
       "Diseño responsive",
       "Configuración de Medios de Pago y Envío básicos",

@@ -11,7 +11,7 @@ import { pricing } from "../constants/pricing";
   <img src="/images/waves.svg" alt="" aria-hidden="true" />
 
   <div
-    class="flex flex-col items-center justify-center gap-6 px-4 py-6 text-white"
+    class="flex flex-col items-center justify-center gap-10 px-4 py-6 text-white"
   >
     <div class="flex flex-col sm:flex-row gap-4 items-center text-center">
       <h2
@@ -31,11 +31,94 @@ import { pricing } from "../constants/pricing";
         Soluciones adaptadas a cada tipo de proyecto
       </p>
     </div>
+
     <div
       data-aos="fade-up"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full"
     >
       {pricing.map((item) => <PricingCard item={item} />)}
+    </div>
+
+    <div
+      data-aos="fade-up"
+      class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl w-full text-center"
+    >
+      <div
+        class="flex flex-col items-center gap-3 bg-primary rounded-2xl p-6 shadow-gray-900 shadow-lg"
+      >
+        <div class="p-3 bg-white/10 rounded-full text-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white">Facilidad de pago</h3>
+        <p class="text-sm text-gray-300">
+          Empezamos con el 50% al iniciar el proyecto y el 50% restante se abona
+          recién al entregarlo.
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col items-center gap-3 bg-primary rounded-2xl p-6 shadow-gray-900 shadow-lg"
+      >
+        <div class="p-3 bg-white/10 rounded-full text-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white">Único pago</h3>
+        <p class="text-sm text-gray-300">
+          Olvidate por 12 meses. Al renovar solo abonás dominio y hosting; el
+          desarrollo ya es tuyo para siempre.
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col items-center gap-3 bg-primary rounded-2xl p-6 shadow-gray-900 shadow-lg"
+      >
+        <div class="p-3 bg-white/10 rounded-full text-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white">Escalabilidad total</h3>
+        <p class="text-sm text-gray-300">
+          Tu sitio crece con vos. Podés añadir nuevas funciones, secciones o
+          integrar herramientas en cualquier momento.
+        </p>
+      </div>
     </div>
   </div>
 
