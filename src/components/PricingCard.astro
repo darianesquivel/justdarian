@@ -18,7 +18,7 @@ interface Props {
 const { item } = Astro.props as Props;
 const phoneNumber = "5491121547438";
 const message = encodeURIComponent(
-  `Quiero más información sobre ${item.title}`
+  `Quiero más información sobre ${item.title}`,
 );
 const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 ---
@@ -58,7 +58,7 @@ const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
   </div>
 
   <div class="w-full text-center flex flex-col gap-3">
-    {
+    <!-- {
       item.priceArs ? (
         <div>
           <p class="uppercase text-xs">desde</p>
@@ -86,7 +86,7 @@ const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
           <p class="text-xs">ARS {dolarsToArs(item.salePrice)}</p>
         </div>
       )
-    }
+    } -->
     <div class="w-full border-t border-gray-300"></div>
   </div>
 

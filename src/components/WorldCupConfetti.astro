@@ -1,0 +1,104 @@
+---
+const numberOfPapers = 120;
+const colors = ["#74ACDF", "#FFFFFF"];
+const goldenColor = "#F6B40E";
+
+const papers = Array.from({ length: numberOfPapers }).map((_, index) => {
+  const layer = Math.floor(Math.random() * 3) + 1;
+  const speedMultiplier = 1 / layer;
+
+  const duration = (Math.random() * 5 + 5) * speedMultiplier;
+  const delay = Math.random() * -15;
+
+  const isSun = Math.random() > 0.94;
+  const width = isSun ? 12 : Math.random() * 10 + 6;
+  const height = isSun ? 12 : Math.random() * 6 + 10;
+
+  const xPos = Math.random() * 100;
+  const color = isSun
+    ? goldenColor
+    : colors[Math.floor(Math.random() * colors.length)];
+  const drift = Math.random() * 20 - 10;
+  const initialRotation = Math.random() * 360;
+
+  const mobileHideClass = index % 3 !== 0 ? "mobile-hide" : "";
+
+  return {
+    class: `confeti ${mobileHideClass} ${isSun ? "sun-style" : "paper-style"}`,
+    style: `--p-width: ${width}px; 
+            --p-height: ${height}px; 
+            --p-x-pos: ${xPos}%; 
+            --p-duration: ${duration}s; 
+            --p-delay: ${delay}s;
+            --p-color: ${color};
+            --p-drift: ${drift}vw;
+            --p-rotation: ${initialRotation}deg;
+            z-index: ${layer * 10};`,
+  };
+});
+---
+
+<div class="confeti-container">
+  {papers.map((p) => <div class={p.class} style={p.style} />)}
+</div>
+
+<style is:global is:inline>
+  .confeti-container {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9999;
+    perspective: 800px;
+  }
+
+  .confeti {
+    position: absolute;
+    background-color: var(--p-color);
+    width: var(--p-width);
+    height: var(--p-height);
+    left: var(--p-x-pos);
+    top: -30px;
+    will-change: transform;
+    animation: fall-and-flip var(--p-duration) linear infinite;
+    animation-delay: var(--p-delay);
+  }
+
+  .paper-style {
+    border-radius: 2px 5px 1px 4px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(
+      135deg,
+      var(--p-color) 0%,
+      var(--p-color) 85%,
+      rgba(255, 255, 255, 0.4) 100%
+    );
+  }
+
+  .sun-style {
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  @keyframes fall-and-flip {
+    0% {
+      transform: translate(0, 0) rotateX(0deg) rotateY(0deg)
+        rotateZ(var(--p-rotation));
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--p-drift), 110vh) rotateX(720deg)
+        rotateY(360deg) rotateZ(calc(var(--p-rotation) + 180deg));
+      opacity: 0.7;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mobile-hide {
+      display: none !important;
+    }
+  }
+</style>
